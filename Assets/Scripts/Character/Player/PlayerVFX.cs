@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerVFX : MonoBehaviour
@@ -20,13 +17,13 @@ public class PlayerVFX : MonoBehaviour
     {
         _movement = GetComponent<PlayerMovement>();
         _interaction = GetComponent<PlayerInteraction>();
-        _interaction.Slaped += OnSlaped;
-        _movement.Dying += OnDying;
     }
 
     private void OnEnable()
     {
         _energyViewer.ReachedMaxEnergy += OnReachedMaxEnergy;
+        _interaction.Slaped += OnSlaped;
+        _movement.Dying += OnDying;
     }
 
     private void OnDisable()

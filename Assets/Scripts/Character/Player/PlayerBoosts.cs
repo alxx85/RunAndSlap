@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -28,9 +26,13 @@ public class PlayerBoosts : MonoBehaviour
 
     private void Start()
     {
+        _collider = GetComponent<Collider>();
+    }
+
+    private void OnEnable()
+    {
         _energy.ReachedMaxEnergy += OnReachedMaxEnergy;
         _interaction.Slaped += OnSlaped;
-        _collider = GetComponent<Collider>();
     }
 
     private void OnDisable()

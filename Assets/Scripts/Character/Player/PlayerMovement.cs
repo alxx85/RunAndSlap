@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -21,10 +18,14 @@ public class PlayerMovement : MonoBehaviour
 
     public float Speed => _moveSpeed;
 
-    private void Start()
+    private void Awake()
     {
         _interaction = GetComponent<PlayerInteraction>();
         _boost = GetComponent<PlayerBoosts>();
+    }
+
+    private void OnEnable()
+    {
         _input.ChangedPosition += OnChangedPosition;
         _boost.ChangedSpeed += OnChangedSpeed;
     }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,12 +16,6 @@ public class PlayerInteraction : Interaction
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-    }
-
-    private void Update()
-    {
-        if (IsAlive)
-            FindTarget(); 
     }
 
     protected override void VFXDamage()
@@ -50,6 +43,12 @@ public class PlayerInteraction : Interaction
             _slapDirection = GetEnemyDirection(enemys);
             _animator.SetTrigger(_slapDirection.ToString());
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (IsAlive)
+            FindTarget();
     }
 
     private SlapDirection GetEnemyDirection(List<EnemyInteraction> enemys)
