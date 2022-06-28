@@ -7,8 +7,8 @@ public class RagDoll : MonoBehaviour
     [SerializeField] private Collider[] _dollColliders;
     [SerializeField] private Rigidbody[] _dollRigidbodies;
 
-    public Collider _characterCollider;
-    public Animator _animator;
+    private Collider _characterCollider;
+    private Animator _animator;
 
     private void Start()
     {
